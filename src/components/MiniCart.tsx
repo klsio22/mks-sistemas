@@ -1,3 +1,25 @@
+import { ButtonClose } from './ButtonClose';
+import { ProductInCart } from './ProductInCart';
+
 export function MiniCart() {
-  return <div>MiniCart</div>;
+  return (
+    <div className='absolute z-50 h-screen w-80 lg:w-96 top-0 right-0 bg-blue-700 flex flex-col justify-between'>
+      <header className='flex justify-between px-6 py-5 text-white items-center '>
+        <h2 className='w-[166px] font-bold text-2xl'>Carrinho de compras</h2>
+        <ButtonClose sizeNumber={32}/>
+      </header>
+
+      <main className='p-4 '>
+        <ProductInCart />
+      </main>
+
+      <footer className='text-center text-white font-bold text-3xl '>
+        <div className='flex justify-between p-5 '>
+          <span>Total</span>
+          <span>R$ 789</span>
+        </div>
+        <div className='p-3 bg-black '>Finalizar</div>
+      </footer>
+    </div>
+  );
 }
