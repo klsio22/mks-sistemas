@@ -1,14 +1,16 @@
 import logoImage from '../assets/logo.svg';
+import cart from '../assets/cart.svg';
 
 export function Header() {
   return (
-    <header className='bg-blue-700 px-3'>
-      <div className=''>
+    <header className='p-2 bg-blue-700  flex items-center justify-between'>
+      <div className='text-xl flex gap-3 text-white'>
         <img src={logoImage} alt='logo' />
-        <span>Sistemas</span>
+        <span className=''>Sistemas</span>
       </div>
-      <div className='bgz'>
-        <div></div>
+      <div className='flex px-3 py-1 gap-3 rounded-xl bg-white'>
+        <img src={cart} alt='' />
+        <span>0</span>
       </div>
     </header>
   );
