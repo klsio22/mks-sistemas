@@ -1,35 +1,29 @@
-import { Minus, Plus, X } from 'phosphor-react';
 import clock from '../assets/appleWatch.svg';
 import { ButtonClose } from './ButtonClose';
+import { Counter } from './Counter';
 
 export function ProductInCart() {
   return (
-    <div className='flex items-center bg-white rounded-lg p-4 justify-between w-full'>
-      <div className='w-0'>
-        <div className='relative top-[-50px] right-[-275px]  lg:right-[-305px] '>
-          <ButtonClose sizeNumber={20} />
-        </div>
-      </div>
-
-      <span className='w-16'>
+    <div className='flex items-center bg-white rounded-lg py-7 px-4 justify-between w-full'>
+      <span className='w-10'>
         <img src={clock} alt='relógio' />
       </span>
 
-      <span className='w-28'>Apple Watch Series 4 GPS</span>
-      <div className='flex flex-col'>
-        <span>Qtd:</span>
-        <button className=''>
-          <span>
-            <Minus />
-          </span>
-          <span>1</span>
-          <span>
-            <Plus />
-          </span>
-        </button>
+      <span className='w-28 font-normal leading-[17px]'>
+        Apple Watch Series 4 GPS
+      </span>
+
+      <div className='flex flex-col gap-1 h-[50px]'>
+        <Counter />
       </div>
 
-      <span>R$399</span>
+      <span className='font-bold'>R$399</span>
+
+      <div className='w-0'>
+        <div className='relative -top-12'>
+          <ButtonClose sizeNumber={20} />
+        </div>
+      </div>
     </div>
   );
 }
