@@ -8,6 +8,7 @@ module.exports = {
       xs: 13,
       sm: 14,
       md: 15,
+      '2md': 16,
       lg: 18,
       xl: 20,
       '2xl': 27,
@@ -15,7 +16,6 @@ module.exports = {
     },
     colors: {
       'gray-200': '#EEEEEE',
-      'blue-600': '#0F52BA',
       'blue-700': '#0F52BA',
       white: '#ffffff',
       black: '#000000',
