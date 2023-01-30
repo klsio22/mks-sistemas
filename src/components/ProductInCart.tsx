@@ -10,7 +10,11 @@ export function ProductInCart() {
     <div className='flex items-center flex-col gap-7 lg:gap-4 bg-white rounded-lg py-7 px-4 justify-between w-full lg:flex-row'>
       {width < 1024 && (
         <div className='relative left-32 -top-4 h-0'>
-          <X size={28} color='#000000' onClick={() => console.log('remover produto')} />
+          <X
+            size={28}
+            color='#000000'
+            onClick={() => console.log('remover produto')}
+          />
         </div>
       )}
       <span className='w-24'>
@@ -26,7 +30,7 @@ export function ProductInCart() {
           <Counter />
         </div>
 
-        <div className='font-bold bg-zinc-700 text-white py-[10px] px-4 lg:px-0 lg:bg-white lg:text-black lg:py-1 rounded-[5px]'>
+        <div className=' bg-zinc-700 font-bold text-white py-[10px] px-4 lg:px-0 lg:bg-white lg:text-black lg:py-1 rounded-[5px]'>
           <span>R$399</span>
         </div>
       </div>
