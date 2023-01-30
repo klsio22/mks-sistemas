@@ -8,13 +8,13 @@ interface CloseMiniCart {
 }
 
 export function MiniCart({ valueActive }: CloseMiniCart) {
-  const [open, setOpen] = useState(valueActive);
+  const [close, setClose] = useState(valueActive);
 
   return (
     <div
       className={clsx(
-        'absolute z-50 h-screen w-[22rem] lg:w-[486px] top-0 right-0 bg-blue-700 flex flex-col justify-between',
-        { '-right-[500px] hidden': !open }
+        'absolute z-50 h-screen w-[22rem] lg:w-[486px] top-0  bg-blue-700 flex flex-col justify-between',
+        { '-right-[500px]': !close, 'right-0': close }
       )}
     >
       <header className='flex justify-between px-6 py-5 text-white items-center '>
@@ -23,7 +23,7 @@ export function MiniCart({ valueActive }: CloseMiniCart) {
           size={38}
           color='#ffffff'
           className='p-[7px] bg-black rounded-full'
-          onClick={() => setOpen(false)}
+          onClick={() => setClose(false)}
         />
       </header>
 
