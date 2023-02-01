@@ -3,9 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { X } from 'phosphor-react';
 import { ProductInCart } from './ProductInCart';
-/* 
-import { CardItem } from './CardItem';
-import storeItems from '../data/items.json'; */
 
 type ShoppingCartProps = {
   isOpen: boolean;
@@ -52,19 +49,6 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
       </Offcanvas.Header>
       <Offcanvas.Body>
         <Stack gap={3}>
-          {/*           {cartItems.map((item) => (
-            <CardItem key={item.id} {...item} />
-          ))}
-          <div className='ms-auto fw-bold fs-5'>
-            Total{' '}
-            {formatCurrency(
-              cartItems.reduce((total, cartItems) => {
-                const item = storeItems.find((i) => i.id === cartItems.id);
-                return total + (item?.price || 0) * cartItems.quantity;
-              }, 0)
-            )}
-          </div> */}
-
           {cartItems.map((item) => (
             <ProductInCart key={item.id} {...item} />
           ))}

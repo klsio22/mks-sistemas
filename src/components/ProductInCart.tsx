@@ -1,5 +1,4 @@
 import { X } from 'phosphor-react';
-import clock from '../assets/appleWatch.svg';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { useApiProduct } from '../data/useApiProduct';
 
@@ -12,9 +11,12 @@ type CardItemProps = {
 
 export function ProductInCart({ id, quantity }: CardItemProps) {
   const width = window.innerWidth;
+  const { infoProduct } = useApiProduct();
   const { removeFromCart } = useShoppingCart();
 
-  const item = useApiProduct()?.products.find((product) => product.id === id);
+  const item = infoProduct?.products.find((product) => product.id === id);
+
+  //const item = useApiProduct()?
 
   return (
     <div className='flex items-center flex-col gap-7 lg:gap-4 bg-white rounded-lg py-7 px-4 justify-between w-full lg:flex-row'>
@@ -31,7 +33,7 @@ export function ProductInCart({ id, quantity }: CardItemProps) {
 
       <div className='flex items-center gap-8 w-full justify-center'>
         <div className='flex flex-col gap-1 lg:w-[70px] lg:h-[50px]'>
-          <Counter />
+          <Counter id={id} quantity={quantity} />
         </div>
 
         {width < 1024 ? (

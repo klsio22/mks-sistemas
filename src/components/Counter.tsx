@@ -1,12 +1,14 @@
 import { Minus, Plus } from 'phosphor-react';
 import { useState } from 'react';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
-export function Counter() {
-  const [count, setCount] = useState(1);
+type CounterProps = {
+  id: number;
+  quantity: number;
+};
 
-  function decrement(value: number) {
-    value > 1 ? setCount(value - 1) : setCount(1);
-  }
+export function Counter({ id, quantity }: CounterProps) {
+  const { increaseCartQuantity, decreaseCartQuantity } = useShoppingCart();
 
   const width = window.innerWidth;
 
@@ -16,15 +18,18 @@ export function Counter() {
 
       <div className='border border-[#bfbfbf] rounded-[4px] lg:text-2xs'>
         <div className='flex gap-2 p-[10px] w-[100px] justify-between lg:gap-3 lg:w-auto lg:px-2 lg:py-1 '>
-          <button aria-label='Decrement value' onClick={() => decrement(count)}>
+          <button
+            aria-label='Decrement value'
+            onClick={() => decreaseCartQuantity(id)}
+          >
             <Minus />
           </button>
 
-          <span>{count}</span>
+          <span>{quantity}</span>
 
           <button
             aria-label='Increment value'
-            onClick={() => setCount(count + 1)}
+            onClick={() => increaseCartQuantity(id)}
           >
             <Plus />
           </button>
