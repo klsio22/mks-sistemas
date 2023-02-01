@@ -3,6 +3,7 @@ import { useShoppingCart } from '../context/ShoppingCartContext';
 import { useApiProduct } from '../data/useApiProduct';
 
 import { Counter } from './Counter';
+import { Loading } from './Loading';
 
 type CardItemProps = {
   id: number;
@@ -11,17 +12,22 @@ type CardItemProps = {
 
 export function ProductInCart({ id, quantity }: CardItemProps) {
   const width = window.innerWidth;
-  const { infoProduct } = useApiProduct();
+  const { infoProduct, loading } = useApiProduct();
   const { removeFromCart } = useShoppingCart();
 
   const item = infoProduct?.products.find((product) => product.id === id);
 
   //const item = useApiProduct()?
 
+  if (loading) return <Loading />;
+
   return (
     <div className='flex items-center flex-col gap-7 lg:gap-4 bg-white rounded-lg py-7 px-4 justify-between w-full lg:flex-row'>
       {width < 1024 && (
-        <div className='relative left-32 -top-4 h-0'>
+        <div
+          className='relative left-32 -top-4 h-0'
+          onClick={() => removeFromCart(item?.id || 0)}
+        >
           <X size={21} color='#000000' />
         </div>
       )}
@@ -48,7 +54,7 @@ export function ProductInCart({ id, quantity }: CardItemProps) {
       </div>
 
       {width > 1024 && (
-        <div className='w-0'>
+        <div className='w-0' onClick={() => removeFromCart(item?.id || 0)}>
           <div className='relative -top-12 -right-2'>
             <X
               size={20}
