@@ -11,7 +11,7 @@ interface infoProduct {
 export function Product({ photo, name, description, price }: infoProduct) {
   return (
     <div className='bg-white w-[251px] h-72 rounded-lg  shadow  shadow-gray-200  drop-shadow-lg flex flex-col gap-3 justify-between lg:w-[217.56px] lg:h-full'>
-      <div className='flex flex-col justify-center w-full gap-4 px-2'>
+      <div className='flex flex-col justify-between w-full h-full gap-2 px-2'>
         <div className='flex justify-center py-2'>
           <img src={photo} alt='image product' className='w-1/2' />
         </div>

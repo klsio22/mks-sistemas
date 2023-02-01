@@ -67,6 +67,10 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
           <ProductInCart />
           <ProductInCart />
           <ProductInCart />
+
+          <ProductInCart />
+          <ProductInCart />
+          <ProductInCart />
         </Stack>
       </Offcanvas.Body>
       <footer className='text-center text-white font-bold text-3xl '>

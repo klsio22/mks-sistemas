@@ -3,6 +3,12 @@ import clock from '../assets/appleWatch.svg';
 
 import { Counter } from './Counter';
 
+type CardItemProps = {
+  id: number;
+  quantity: number;
+};
+
+
 export function ProductInCart() {
   const width = window.innerWidth;
 
@@ -30,9 +36,15 @@ export function ProductInCart() {
           <Counter />
         </div>
 
-        <div className=' bg-zinc-700 font-bold text-white py-[10px] px-4 lg:px-0 lg:bg-zinc-800 lg:text-black lg:py-1 rounded-[5px] '>
-          <span>R$399</span>
-        </div>
+        {width < 1024 ? (
+          <div className=' bg-zinc-700 font-bold text-white py-[10px] px-4 lg:px-0 lg:bg-zinc-800 lg:text-black lg:py-1 rounded-[5px] '>
+            <span>R$399</span>
+          </div>
+        ) : (
+          <div className='px-0 bg-white font-bold text-black py-1 rounded-[5px] '>
+            <span>R$399</span>
+          </div>
+        )}
       </div>
 
       {width > 1024 && (
