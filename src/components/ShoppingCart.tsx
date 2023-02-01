@@ -67,7 +67,6 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
           <ProductInCart />
           <ProductInCart />
           <ProductInCart />
-
           <ProductInCart />
           <ProductInCart />
           <ProductInCart />

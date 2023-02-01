@@ -19,7 +19,7 @@ export function Header() {
           onClick={openCart}
         >
           <img src={cart} alt='' />
-          <span>0</span>
+          <span>{cartQuantity}</span>
         </div>
 
       </div>
