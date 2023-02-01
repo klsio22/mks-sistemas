@@ -13,6 +13,7 @@ type ShoppingCartProps = {
 
 export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   const { closeCart, cartItems } = useShoppingCart();
+
   const width = window.innerWidth;
   let length;
   if (width < 1024) {
@@ -64,12 +65,9 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
             )}
           </div> */}
 
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
+          {cartItems.map((item) => (
+            <ProductInCart key={item.id} {...item} />
+          ))}
         </Stack>
       </Offcanvas.Body>
       <footer className='text-center text-white font-bold text-3xl '>

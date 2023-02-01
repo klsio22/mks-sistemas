@@ -32,12 +32,7 @@ export function MiniCart({ isOpen }: CloseMiniCart) {
 
       <main className='p-4 h-full overflow-y-auto'>
         <div className='w-full flex flex-col gap-3 p-2'>
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
+          {/* <ProductInCart /> */}
         </div>
       </main>
 

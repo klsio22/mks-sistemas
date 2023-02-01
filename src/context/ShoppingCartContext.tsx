@@ -91,7 +91,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     >
       {children}
        <ShoppingCart isOpen={isOpenCart}  />
-      {/*  <MiniCart isOpen={isOpenCart} />  */}
     </ShoppingCartContext.Provider>
   );
 }
