@@ -17,10 +17,6 @@ export function ProductInCart({ id, quantity }: CardItemProps) {
 
   const item = infoProduct?.products.find((product) => product.id === id);
 
-  //const item = useApiProduct()?
-
-  if (loading) return <Loading />;
-
   return (
     <div className='flex items-center flex-col gap-7 lg:gap-4 bg-white rounded-lg py-7 px-4 justify-between w-full lg:flex-row'>
       {width < 1024 && (
