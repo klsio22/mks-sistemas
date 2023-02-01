@@ -1,9 +1,7 @@
 import { X } from 'phosphor-react';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { useApiProduct } from '../data/useApiProduct';
-
 import { Counter } from './Counter';
-import { Loading } from './Loading';
 
 type CardItemProps = {
   id: number;
