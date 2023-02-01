@@ -7,7 +7,7 @@ export function Header() {
 
   return (
     <header className='bg-blue-700  '>
-      <div className='px-5 lg:py-5 lg:px-11 m-auto flex items-center justify-between max-w-[1440px]'>
+      <div className='p-4 m-auto flex items-center justify-between max-w-[1440px] lg:py-5 lg:px-2'>
         <div className='text-xl flex gap-3 text-white i'>
           <img src={logoImage} alt='logo' />
           <span className=''>Sistemas</span>
@@ -19,7 +19,6 @@ export function Header() {
           <img src={cart} alt='' />
           <span>{cartQuantity}</span>
         </div>
-
       </div>
     </header>
   );
