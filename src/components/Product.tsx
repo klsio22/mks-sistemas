@@ -1,16 +1,22 @@
 import shoppingBag from '../assets/shoppingBag.svg';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 
-interface infoProduct {
+type infoProduct = {
   id: number;
   photo: string;
   name: string;
   description: string;
   price: string;
-}
+};
 
 export function Product({ id, photo, name, description, price }: infoProduct) {
-  const { increaseCartQuantity } = useShoppingCart();
+  const { openCart, increaseCartQuantity } = useShoppingCart();
+
+  function buyProduct() {
+    increaseCartQuantity(id);
+    openCart();
+  }
+
   return (
     <div className='bg-white w-[251px] h-72 rounded-lg shadow shadow-gray-200  drop-shadow-lg flex flex-col gap-3 justify-between lg:w-[217.56px] lg:h-full'>
       <div className='flex flex-col justify-between w-full h-full gap-2 px-2'>
@@ -29,7 +35,7 @@ export function Product({ id, photo, name, description, price }: infoProduct) {
 
       <div
         className='bg-blue-700 flex items-center gap-4 justify-center text-white rounded-b-lg p-1 font-bold text-lg'
-        onClick={() => increaseCartQuantity(id)}
+        onClick={() => buyProduct()}
       >
         <img src={shoppingBag} alt='' />
         <span>comprar</span>

@@ -12,16 +12,19 @@ type infoProduct = {
 };
 
 export function useApiProduct() {
+  const [loading, setLoading] = useState(true);
   const [infoProduct, setInfoProduct] = useState<infoProduct>();
   useEffect(() => {
     api
       .get('/products?page=1&rows=10&sortBy=price&orderBy=ASC')
       .then((res) => {
+        setLoading(true);
         //console.log(res.data);
         setInfoProduct(res.data);
       })
-      .catch((error) => console.log('error: ', error));
+      .catch((error) => console.log('error: ', setLoading(true)))
+      .finally(() => setLoading(false));
   }, []);
 
-  return infoProduct;
+  return {infoProduct, loading};
 }
