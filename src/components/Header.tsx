@@ -9,7 +9,7 @@ export function Header() {
 
   return (
     <header className='bg-blue-700  '>
-      <div className='p-5 lg:py-5 lg:px-11 m-auto flex items-center justify-between max-w-[1440px]'>
+      <div className='p-3 lg:py-5 lg:px-11 m-auto flex items-center justify-between max-w-[1440px]'>
         <div className='text-xl flex gap-3 text-white i'>
           <img src={logoImage} alt='logo' />
           <span className=''>Sistemas</span>
@@ -22,7 +22,6 @@ export function Header() {
           <span>0</span>
         </div>
 
-        <MiniCart />
       </div>
     </header>
   );

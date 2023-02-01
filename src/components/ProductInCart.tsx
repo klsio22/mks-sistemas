@@ -26,18 +26,18 @@ export function ProductInCart() {
       </span>
 
       <div className='flex items-center gap-8 w-full justify-center'>
-        <div className='flex flex-col gap-1 lg:h-[50px]'>
+        <div className='flex flex-col gap-1 lg:w-[70px] lg:h-[50px]'>
           <Counter />
         </div>
 
-        <div className=' bg-zinc-700 font-bold text-white py-[10px] px-4 lg:px-0 lg:bg-white lg:text-black lg:py-1 rounded-[5px]'>
+        <div className=' bg-zinc-700 font-bold text-white py-[10px] px-4 lg:px-0 lg:bg-zinc-800 lg:text-black lg:py-1 rounded-[5px] '>
           <span>R$399</span>
         </div>
       </div>
 
       {width > 1024 && (
         <div className='w-0'>
-          <div className='relative lg:-top-12'>
+          <div className='relative -top-12 -right-2'>
             <X
               size={20}
               color='#ffffff'

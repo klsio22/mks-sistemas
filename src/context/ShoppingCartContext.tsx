@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 import { MiniCart } from '../components/MiniCart';
+import { ShoppingCart } from '../components/ShoppingCart';
 
 type ShoppingCartProviderProps = {
   children: ReactNode;
@@ -89,7 +90,8 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       }}
     >
       {children}
-       <MiniCart isOpen={isOpenCart} /> 
+       <ShoppingCart isOpen={isOpenCart}  />
+      {/*  <MiniCart isOpen={isOpenCart} />  */}
     </ShoppingCartContext.Provider>
   );
 }
