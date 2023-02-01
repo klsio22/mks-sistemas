@@ -1,20 +1,23 @@
 import clsx from 'clsx';
 import { X } from 'phosphor-react';
 import { useState } from 'react';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 import { ProductInCart } from './ProductInCart';
 
 interface CloseMiniCart {
-  valueActive: boolean;
+  isOpen?: boolean;
 }
 
-export function MiniCart({ valueActive }: CloseMiniCart) {
-  const [close, setClose] = useState(valueActive);
+export function MiniCart({ isOpen }: CloseMiniCart) {
+  const { closeCart } = useShoppingCart();
+
+  console.log(isOpen);
 
   return (
     <div
       className={clsx(
         'absolute z-50 h-screen w-[22rem] lg:w-[486px] top-0  bg-blue-700 flex flex-col justify-between',
-        { '-right-[500px]': !close, 'right-0': close }
+        { '-right-[500px]': !isOpen, 'right-0': isOpen }
       )}
     >
       <header className='flex justify-between px-6 py-5 text-white items-center '>
@@ -23,7 +26,7 @@ export function MiniCart({ valueActive }: CloseMiniCart) {
           size={38}
           color='#ffffff'
           className='p-[7px] bg-black rounded-full'
-          onClick={() => setClose(false)}
+          onClick={closeCart}
         />
       </header>
 

@@ -2,9 +2,10 @@ import logoImage from '../assets/logo.svg';
 import cart from '../assets/cart.svg';
 import { MiniCart } from './MiniCart';
 import { useState } from 'react';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
 export function Header() {
-  const [open, setOpen] = useState(false);
+  const { openCart, cartQuantity } = useShoppingCart();
 
   return (
     <header className='bg-blue-700  '>
@@ -15,12 +16,13 @@ export function Header() {
         </div>
         <div
           className='flex px-3 py-1 gap-3 rounded-xl bg-white'
-          onClick={() => setOpen(!open)}
+          onClick={openCart}
         >
           <img src={cart} alt='' />
           <span>0</span>
         </div>
-        {open && <MiniCart valueActive={open} />}
+
+        <MiniCart />
       </div>
     </header>
   );
