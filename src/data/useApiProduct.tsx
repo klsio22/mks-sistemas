@@ -14,7 +14,8 @@ type infoProduct = {
 export function useApiProduct() {
   const [loading, setLoading] = useState(true);
   const [infoProduct, setInfoProduct] = useState<infoProduct>();
-  useEffect(() => {
+
+  async function productsApi() {
     api
       .get('/products?page=1&rows=10&sortBy=price&orderBy=ASC')
       .then((res) => {
@@ -24,7 +25,11 @@ export function useApiProduct() {
       })
       .catch((error) => console.log('error: ', setLoading(true)))
       .finally(() => setLoading(false));
+  }
+
+  useEffect(() => {
+    productsApi();
   }, []);
 
-  return {infoProduct, loading};
+  return { infoProduct, loading };
 }

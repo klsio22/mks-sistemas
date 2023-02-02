@@ -3,15 +3,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 import { X } from 'phosphor-react';
 import { ProductInCart } from './ProductInCart';
+import { formatCurrency } from '../utilities/formatCurrency';
+import { useApiProduct } from '../data/useApiProduct';
+import { FooterShoppingCart } from './FooterShoppingCart';
+import { Loading } from './Loading';
 
 type ShoppingCartProps = {
+  id?: number;
   isOpen: boolean;
 };
 
-export function ShoppingCart({ isOpen }: ShoppingCartProps) {
+export function ShoppingCart({ id, isOpen }: ShoppingCartProps) {
+  const width = window.innerWidth;
+  const { infoProduct, loading } = useApiProduct();
   const { closeCart, cartItems } = useShoppingCart();
 
-  const width = window.innerWidth;
   let length;
   if (width < 1024) {
     length = {
@@ -22,6 +28,13 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
       width: '486px',
     };
   }
+
+  const total = cartItems.reduce((total, cartItems) => {
+    const item = infoProduct?.products.find((i) => i.id === cartItems.id);
+    return total + Number(item?.price) * cartItems.quantity;
+  }, 0);
+
+  if (loading) return <Loading />;
 
   return (
     <Offcanvas
@@ -57,7 +70,7 @@ export function ShoppingCart({ isOpen }: ShoppingCartProps) {
       <footer className='text-center text-white font-bold text-3xl '>
         <div className='flex justify-between p-5 '>
           <span>Total</span>
-          <span>R$ 789</span>
+          <span>{formatCurrency(total)}</span>
         </div>
         <div className='p-3 bg-black '>Finalizar</div>
       </footer>

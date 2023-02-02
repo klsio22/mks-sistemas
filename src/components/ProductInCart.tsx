@@ -10,10 +10,10 @@ type CardItemProps = {
 
 export function ProductInCart({ id, quantity }: CardItemProps) {
   const width = window.innerWidth;
-  const { infoProduct, loading } = useApiProduct();
+  const { infoProduct } = useApiProduct();
   const { removeFromCart } = useShoppingCart();
-
   const item = infoProduct?.products.find((product) => product.id === id);
+
 
   return (
     <div className='flex items-center flex-col gap-7 lg:gap-4 bg-white rounded-lg py-7 px-4 justify-between w-full lg:flex-row'>
@@ -38,11 +38,11 @@ export function ProductInCart({ id, quantity }: CardItemProps) {
 
         {width < 1024 ? (
           <div className=' bg-zinc-700 font-bold text-white py-[10px] px-4 lg:px-0 lg:bg-zinc-800 lg:text-black lg:py-1 rounded-[5px] '>
-            <span>{item?.price}</span>
+            <span>R${item?.price}</span>
           </div>
         ) : (
           <div className='px-0 bg-white font-bold text-black py-1 rounded-[5px] '>
-            <span>{item?.price}</span>
+            <span>R${item?.price}</span>
           </div>
         )}
       </div>
