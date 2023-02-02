@@ -5,7 +5,6 @@ import { X } from 'phosphor-react';
 import { ProductInCart } from './ProductInCart';
 import { formatCurrency } from '../utilities/formatCurrency';
 import { useApiProduct } from '../data/useApiProduct';
-import { FooterShoppingCart } from './FooterShoppingCart';
 import { Loading } from './Loading';
 
 type ShoppingCartProps = {

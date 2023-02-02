@@ -1,5 +1,4 @@
 import { Minus, Plus } from 'phosphor-react';
-import { useState } from 'react';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 
 type CounterProps = {

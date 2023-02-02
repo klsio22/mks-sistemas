@@ -5,9 +5,7 @@ import './styles/global.css';
 export default function App() {
   return (
     <ShoppingCartProvider>
-      <div className=''>
-        <Home />
-      </div>
+      <Home />
     </ShoppingCartProvider>
   );
 }
