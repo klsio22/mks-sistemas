@@ -1,9 +1,11 @@
 import logoImage from '../assets/logo.svg';
 import cart from '../assets/cart.svg';
 import { useShoppingCart } from '../context/ShoppingCartContext';
+import { useApiProduct } from '../data/useApiProduct';
 
 export function Header() {
   const { openCart, cartQuantity } = useShoppingCart();
+  const { error } = useApiProduct();
 
   return (
     <header className='bg-blue-700  '>
@@ -12,13 +14,20 @@ export function Header() {
           <img src={logoImage} alt='logo' />
           <span className=''>Sistemas</span>
         </div>
-        <div
-          className='flex px-3 py-1 gap-3 rounded-xl bg-white'
-          onClick={openCart}
-        >
-          <img src={cart} alt='' />
-          <span>{cartQuantity}</span>
-        </div>
+        {error ? (
+          <div className='flex px-3 py-1 gap-3 rounded-xl bg-white'>
+            <img src={cart} alt='' />
+            <span>0</span>
+          </div>
+        ) : (
+          <div
+            className='flex px-3 py-1 gap-3 rounded-xl bg-white'
+            onClick={openCart}
+          >
+            <img src={cart} alt='' />
+            <span>{cartQuantity}</span>
+          </div>
+        )}
       </div>
     </header>
   );
