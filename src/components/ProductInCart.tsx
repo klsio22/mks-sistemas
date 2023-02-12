@@ -12,7 +12,8 @@ export function ProductInCart({ id, quantity }: CardItemProps) {
   const width = window.innerWidth;
   const { infoProduct } = useApiProduct();
   const { removeFromCart } = useShoppingCart();
-  const item = infoProduct?.products.find((product) => product.id === id);
+  
+  const item = infoProduct.products.find((product) => product.id === id);
 
 
   return (

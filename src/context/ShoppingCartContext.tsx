@@ -1,8 +1,6 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 import { ShoppingCart } from '../components/ShoppingCart';
-import { useApiProduct } from '../data/useApiProduct';
 import { useLocalStorage } from '../hooks/useLocalStorege';
-import { formatCurrency } from '../utilities/formatCurrency';
 
 type ShoppingCartProviderProps = {
   children: ReactNode;
@@ -12,7 +10,6 @@ interface CartItem {
   id: number;
   quantity: number;
 }
-
 
 type ShoppingCartContext = {
   getItemQuantity: (id: number) => number;

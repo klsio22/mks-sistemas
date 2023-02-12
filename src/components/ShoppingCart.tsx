@@ -12,7 +12,7 @@ type ShoppingCartProps = {
   isOpen: boolean;
 };
 
-export function ShoppingCart({ id, isOpen }: ShoppingCartProps) {
+export function ShoppingCart({ isOpen }: ShoppingCartProps) {
   const width = window.innerWidth;
   const { infoProduct, loading } = useApiProduct();
   const { closeCart, cartItems } = useShoppingCart();
@@ -29,7 +29,7 @@ export function ShoppingCart({ id, isOpen }: ShoppingCartProps) {
   }
 
   const total = cartItems.reduce((total, cartItems) => {
-    const item = infoProduct?.products.find((i) => i.id === cartItems.id);
+    const item = infoProduct.products.find((i) => i.id === cartItems.id);
     return total + Number(item?.price) * cartItems.quantity;
   }, 0);
 
